@@ -1,0 +1,35 @@
+[project]
+name = "room2learn"
+version = "0.1.0"
+description = "Multimodal AI app that turns real-world room photos into interactive educational experiences"
+requires-python = ">=3.12,<3.13"
+dependencies = [
+    "fastapi",
+    "uvicorn[standard]",
+    "python-multipart",
+    "python-dotenv",
+    "sse-starlette",
+    "httpx",
+    "pyyaml",
+    "requests",
+    "pydub",
+    "google-genai",
+]
+
+[project.scripts]
+dev = "app.cli:dev"
+
+[tool.setuptools.packages.find]
+where = ["."]
+include = ["app"]
+
+[tool.ruff]
+target-version = "py312"
+line-length = 120
+
+[tool.ruff.lint]
+select = ["E4", "E7", "E9", "F", "I"]
+
+[tool.ruff.format]
+quote-style = "double"
+indent-style = "space"

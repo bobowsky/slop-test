@@ -1,0 +1,10 @@
+fastapi
+uvicorn[standard]
+python-multipart
+python-dotenv
+sse-starlette
+httpx
+pyyaml
+requests
+pydub
+google-genai
