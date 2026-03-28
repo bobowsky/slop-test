@@ -1,0 +1,382 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Room2Learn | The Knowledge Portal</title>
+<!-- Fonts -->
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&amp;family=Manrope:wght@700;800&amp;display=swap" rel="stylesheet"/>
+<!-- Icons -->
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            colors: {
+              "surface-tint": "#494bd6",
+              "tertiary-container": "#008376",
+              "primary-fixed": "#e1e0ff",
+              "on-tertiary-fixed": "#00201c",
+              "on-surface": "#191c1e",
+              "surface-container-highest": "#e0e3e5",
+              "on-background": "#191c1e",
+              "on-secondary-fixed-variant": "#5516be",
+              "surface-container-low": "#f2f4f6",
+              "surface-dim": "#d8dadc",
+              "on-primary-fixed": "#07006c",
+              "secondary": "#6b38d4",
+              "error": "#ba1a1a",
+              "secondary-fixed-dim": "#d0bcff",
+              "surface-variant": "#e0e3e5",
+              "on-tertiary-container": "#f4fffb",
+              "tertiary-fixed": "#71f8e4",
+              "tertiary": "#00685d",
+              "secondary-container": "#8455ef",
+              "on-tertiary": "#ffffff",
+              "primary": "#4648d4",
+              "on-primary-fixed-variant": "#2f2ebe",
+              "outline-variant": "#c7c4d7",
+              "outline": "#767586",
+              "on-secondary-container": "#fffbff",
+              "primary-fixed-dim": "#c0c1ff",
+              "inverse-surface": "#2d3133",
+              "on-primary-container": "#fffbff",
+              "surface-bright": "#f7f9fb",
+              "on-surface-variant": "#464554",
+              "on-error-container": "#93000a",
+              "inverse-primary": "#c0c1ff",
+              "on-tertiary-fixed-variant": "#005048",
+              "on-secondary-fixed": "#23005c",
+              "background": "#f7f9fb",
+              "surface-container-high": "#e6e8ea",
+              "primary-container": "#6063ee",
+              "inverse-on-surface": "#eff1f3",
+              "surface": "#f7f9fb",
+              "secondary-fixed": "#e9ddff",
+              "on-error": "#ffffff",
+              "on-secondary": "#ffffff",
+              "error-container": "#ffdad6",
+              "tertiary-fixed-dim": "#4fdbc8",
+              "surface-container-lowest": "#ffffff",
+              "surface-container": "#eceef0",
+              "on-primary": "#ffffff"
+            },
+            fontFamily: {
+              "headline": ["Manrope"],
+              "body": ["Inter"],
+              "label": ["Inter"]
+            },
+            borderRadius: {"DEFAULT": "0.25rem", "lg": "0.5rem", "xl": "0.75rem", "full": "9999px"},
+          },
+        },
+      }
+    </script>
+<style>
+      .material-symbols-outlined {
+        font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+      }
+      .intelligence-pulse {
+        position: absolute;
+        width: 300px;
+        height: 300px;
+        background: radial-gradient(circle, rgba(70, 72, 212, 0.15) 0%, rgba(0, 104, 93, 0.05) 100%);
+        filter: blur(60px);
+        border-radius: 50%;
+        z-index: -1;
+        animation: pulse 4s cubic-bezier(0.4, 0, 0.6, 1) infinite;
+      }
+      @keyframes pulse {
+        0%, 100% { opacity: 0.4; transform: scale(1); }
+        50% { opacity: 0.8; transform: scale(1.1); }
+      }
+      .frosted-glass {
+        backdrop-filter: blur(20px);
+        background-color: rgba(255, 255, 255, 0.7);
+      }
+      .glass-card {
+        background: rgba(255, 255, 255, 0.7);
+        backdrop-filter: blur(24px);
+      }
+    </style>
+</head>
+<body class="bg-surface font-body text-on-surface selection:bg-primary-fixed selection:text-on-primary-fixed">
+<!-- Navigation Shell -->
+<header class="fixed top-0 w-full z-50 bg-white/70 backdrop-blur-xl shadow-[0px_20px_40px_rgba(25,28,30,0.06)]">
+<div class="flex justify-between items-center w-full px-8 py-4 max-w-screen-2xl mx-auto">
+<div class="text-2xl font-manrope font-extrabold tracking-tighter text-indigo-600">Room2Learn</div>
+<nav class="hidden md:flex items-center gap-8">
+<a class="text-indigo-600 font-semibold border-b-2 border-indigo-600 font-inter" href="#gallery">Use Cases</a>
+<a class="text-slate-600 hover:text-indigo-500 transition-colors font-inter" href="#solver">Create</a>
+<a class="text-slate-600 hover:text-indigo-500 transition-colors font-inter" href="#laboratory">How It Works</a>
+</nav>
+<div class="flex items-center gap-4">
+<button id="try-sample-header" class="bg-indigo-600 text-white px-6 py-2.5 rounded-full font-inter font-semibold hover:scale-95 transition-all duration-200 shadow-lg shadow-indigo-200">See Example</button>
+</div>
+</div>
+</header>
+<main class="pt-32 pb-20 overflow-x-hidden">
+<!-- Hero Section -->
+<section id="solver" class="max-w-screen-2xl mx-auto px-8 relative">
+<div class="intelligence-pulse -top-20 -left-20"></div>
+<div class="max-w-3xl">
+<h1 class="font-headline text-6xl md:text-7xl font-extrabold tracking-tight text-on-surface mb-8 leading-[1.1]">
+                    Turn any real space into an <span class="text-primary italic">interactive</span> learning portal.
+                </h1>
+<p class="text-xl md:text-2xl text-on-surface-variant font-body leading-relaxed max-w-2xl mb-12">
+                    Upload a photo of a desk, room, or classroom. The AI transforms your space into a 360° educational world where you explore History or Forensics through voice-guided challenges.
+                </p>
+</div>
+<!-- Configuration Section -->
+<div class="grid grid-cols-1 lg:grid-cols-12 gap-12 mt-20 items-start">
+<!-- Upload Card (Left/Main) -->
+<div class="lg:col-span-7">
+<div class="bg-surface-container-lowest rounded-[2rem] p-4 shadow-[0px_20px_40px_rgba(25,28,30,0.04)] group hover:shadow-xl transition-all duration-500">
+<div id="upload-zone" class="border-2 border-dashed border-outline-variant/30 bg-surface-container-low rounded-[1.5rem] flex flex-col items-center justify-center min-h-[480px] p-12 text-center relative overflow-hidden">
+<input type="file" id="file-input" accept="image/jpeg,image/png,image/webp" class="hidden" />
+<img class="absolute inset-0 w-full h-full object-cover opacity-5 group-hover:scale-105 transition-transform duration-700" data-alt="minimalist modern office interior with soft natural lighting and neutral color palette for subtle background texture" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBM2nfwOhEltqaNkK3eJDDLJR3-5gXdq9JeXbrb96HaW2HlerYMe_9PzD45Yokl8OtYAFhHbBckNCeG36432uEm3zE0o_LWQ6qmExfT46yyQ0QY7Qj-2Ub45SctGOOXTKPz-C-zcrymv35xB9EttUSTjaV4kpN09l2srbx-LAjJudy4uJd8T6U72AP8t9S8fC_zA3n2p_Ub6mr1200pSE1ZVh97jSxjutX5bnvDdwze0gllH4fCvdQQfnsNq5jBNWFOkUOoSbOiBIQ"/>
+<div id="upload-placeholder" class="relative z-10 flex flex-col items-center">
+<div class="w-20 h-20 bg-primary/10 text-primary rounded-full flex items-center justify-center mb-6">
+<span class="material-symbols-outlined text-4xl" data-icon="add_a_photo">add_a_photo</span>
+</div>
+<h3 class="text-2xl font-headline font-bold text-on-surface mb-2">Capture your reality</h3>
+<p class="text-on-surface-variant max-w-sm mb-8">Drag and drop your space photo here or click to browse your files.</p>
+<button id="select-file-btn" class="bg-surface-container-highest text-on-surface font-semibold px-8 py-3 rounded-xl hover:bg-surface-dim transition-colors">Select File</button>
+<div class="mt-6 flex items-start gap-2 text-left max-w-sm">
+<span class="material-symbols-outlined text-tertiary text-base mt-0.5" data-icon="lightbulb">lightbulb</span>
+<p class="text-xs text-on-surface-variant leading-relaxed"><span class="font-semibold text-tertiary">Tip:</span> Use a well-lit photo so the AI can clearly identify objects. The more items visible, the richer the learning experience.</p>
+</div>
+</div>
+<div id="preview-container" class="hidden relative z-10 flex flex-col items-center w-full">
+<img id="image-preview" class="hidden max-h-[400px] rounded-xl object-contain mb-4" alt="Selected image preview" />
+<p id="file-name-display" class="hidden text-sm text-on-surface-variant font-medium"></p>
+</div>
+</div>
+</div>
+</div>
+<!-- Controls Grid (Right/Side) -->
+<div class="lg:col-span-5 space-y-8">
+<div class="bg-surface-container-lowest rounded-[2rem] p-10 shadow-[0px_20px_40px_rgba(25,28,30,0.04)]">
+<h4 class="font-headline text-xl font-bold mb-8 flex items-center gap-3">
+<span class="material-symbols-outlined text-primary" data-icon="settings_input_component">settings_input_component</span>
+                            Experience Config
+                        </h4>
+<div class="space-y-6">
+<!-- Category Dropdown -->
+<div class="space-y-2">
+<label class="text-xs font-bold uppercase tracking-wider text-outline">Knowledge Category</label>
+<div class="relative group">
+<select id="theme-select" class="w-full bg-surface-container-low border-none rounded-xl py-4 px-5 text-on-surface appearance-none focus:ring-2 focus:ring-primary/30 transition-all font-medium">
+<option value="The Archive">The Archive</option>
+<option value="The Cold Case">The Cold Case</option>
+</select>
+<span class="material-symbols-outlined absolute right-4 top-1/2 -translate-y-1/2 pointer-events-none text-on-surface-variant" data-icon="expand_more">expand_more</span>
+</div>
+</div>
+<div class="grid grid-cols-2 gap-4">
+<!-- Mode Dropdown -->
+<div class="space-y-2">
+<label class="text-xs font-bold uppercase tracking-wider text-outline">Learning Mode</label>
+<select id="mode-select" class="w-full bg-surface-container-low border-none rounded-xl py-4 px-5 text-on-surface appearance-none focus:ring-2 focus:ring-primary/30 transition-all font-medium">
+<option>Explore</option>
+<option>Quiz</option>
+<option>Team</option>
+</select>
+</div>
+<!-- Difficulty -->
+<div class="space-y-2">
+<label class="text-xs font-bold uppercase tracking-wider text-outline">Complexity</label>
+<select id="difficulty-select" class="w-full bg-surface-container-low border-none rounded-xl py-4 px-5 text-on-surface appearance-none focus:ring-2 focus:ring-primary/30 transition-all font-medium">
+<option>Easy</option>
+<option>Medium</option>
+<option>Hard</option>
+</select>
+</div>
+</div>
+<div class="pt-6 space-y-4">
+<button id="generate-btn" class="w-full bg-gradient-to-br from-primary to-primary-container text-white py-5 rounded-[1.25rem] font-headline font-bold text-lg shadow-lg shadow-primary/20 hover:scale-[0.98] active:scale-95 transition-all duration-200 flex items-center justify-center gap-2">
+<span class="material-symbols-outlined text-xl" data-icon="auto_awesome">auto_awesome</span>
+                                    Generate Learning Portal
+                                </button>
+<button id="sample-btn" class="w-full border-2 border-outline-variant text-on-surface-variant font-semibold py-3.5 rounded-xl hover:border-primary hover:text-primary hover:bg-primary/5 transition-all duration-200 flex items-center justify-center gap-2">
+<span class="material-symbols-outlined text-lg" data-icon="photo_library">photo_library</span>
+                                    Use Sample Scene
+                                </button>
+</div>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- How it Works (Sequential) -->
+<section id="laboratory" class="mt-40 bg-surface-container-low py-32 overflow-hidden">
+<div class="max-w-screen-2xl mx-auto px-8">
+<div class="flex flex-col md:flex-row justify-between items-end mb-20 gap-8">
+<div>
+<h2 class="font-headline text-5xl font-extrabold mb-6">The Orchestration</h2>
+<p class="text-xl text-on-surface-variant max-w-xl">Four simple steps from a snapshot of your room to an interactive knowledge portal.</p>
+</div>
+<div class="flex gap-4">
+<div class="w-12 h-1 bg-primary"></div>
+<div class="w-12 h-1 bg-outline-variant"></div>
+<div class="w-12 h-1 bg-outline-variant"></div>
+</div>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-4 gap-4 relative">
+<!-- Step 1 -->
+<div class="group">
+<div class="bg-surface-container-lowest p-8 rounded-[2rem] h-full hover:translate-y-[-8px] transition-transform duration-500">
+<span class="text-6xl font-headline font-extrabold text-primary/10 block mb-6">01</span>
+<h4 class="text-xl font-bold mb-4">Scan</h4>
+<p class="text-on-surface-variant text-sm leading-relaxed">The AI instantly recognizes everyday items in your photo and maps them to educational artifacts.</p>
+</div>
+</div>
+<!-- Step 2 -->
+<div class="group">
+<div class="bg-surface-container-lowest p-8 rounded-[2rem] h-full translate-y-8 hover:translate-y-0 transition-transform duration-500">
+<span class="text-6xl font-headline font-extrabold text-primary/10 block mb-6">02</span>
+<h4 class="text-xl font-bold mb-4">Analyze</h4>
+<p class="text-on-surface-variant text-sm leading-relaxed">Objects are transformed into knowledge anchors -- a mug becomes a medieval chalice, a bookshelf turns into an evidence board.</p>
+</div>
+</div>
+<!-- Step 3 -->
+<div class="group">
+<div class="bg-surface-container-lowest p-8 rounded-[2rem] h-full hover:translate-y-[-8px] transition-transform duration-500">
+<span class="text-6xl font-headline font-extrabold text-primary/10 block mb-6">03</span>
+<h4 class="text-xl font-bold mb-4">Generate</h4>
+<p class="text-on-surface-variant text-sm leading-relaxed">A full 360° learning environment is generated with interactive hotspots, quizzes, and a voice-guided narrative.</p>
+</div>
+</div>
+<!-- Step 4 -->
+<div class="group">
+<div class="bg-surface-container-lowest p-8 rounded-[2rem] h-full translate-y-8 hover:translate-y-0 transition-transform duration-500">
+<span class="text-6xl font-headline font-extrabold text-primary/10 block mb-6">04</span>
+<h4 class="text-xl font-bold mb-4">Explore</h4>
+<p class="text-on-surface-variant text-sm leading-relaxed">Enter your transformed space. Use voice to interact with a knowledge guide and solve educational challenges.</p>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- Use Cases Grid -->
+<section id="gallery" class="py-40 max-w-screen-2xl mx-auto px-8">
+<div class="text-center mb-24">
+<span class="text-primary font-bold tracking-[0.2em] uppercase text-sm">Knowledge Portals</span>
+<h2 class="font-headline text-5xl font-extrabold mt-4">Learning for every audience.</h2>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+<!-- Card 1 -->
+<div class="group relative rounded-[2.5rem] overflow-hidden min-h-[400px] flex items-end p-10 bg-slate-900">
+<img class="absolute inset-0 w-full h-full object-cover opacity-60 group-hover:scale-110 transition-transform duration-700" data-alt="modern classroom with scientific equipment and bright collaborative seating areas with soft morning light" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDq6ib74k8dZwUDeKdHQxJZdk2kt-kegdKKZMjk-X-g_jjX1_xWEukjpfQbkRtZ29BFMDelxLtnEh5PUHTE34SlQtl49DnGjg11_X-JW5Rd0ri2qgjInSqpfUFusNEMRZ6pVgcq0bN50U8--MpCJaH6kAxmdlbkq9qZ_8BVw-apCR61HlMSp2MX1Gib0hmYDeOrJQLe3luYx2KgB2L-HGSNv_WueFqPbZvaHMnvvFFhuX9f8vjDWZdK8ybnb7na9wmoHp6ctCS6mnQ"/>
+<div class="absolute inset-0 bg-gradient-to-t from-slate-950 via-slate-950/20 to-transparent"></div>
+<div class="relative z-10">
+<span class="inline-block px-4 py-1 bg-primary text-white text-xs font-bold rounded-full mb-4">Education</span>
+<h4 class="text-3xl font-headline font-bold text-white mb-3">Classrooms</h4>
+<p class="text-slate-300 max-w-sm">Turn history lessons into immersive 360° explorations where students discover knowledge through interactive hotspots.</p>
+</div>
+</div>
+<!-- Card 2 -->
+<div class="group relative rounded-[2.5rem] overflow-hidden min-h-[400px] flex items-end p-10 bg-slate-900 md:translate-y-12">
+<img class="absolute inset-0 w-full h-full object-cover opacity-60 group-hover:scale-110 transition-transform duration-700" data-alt="quiet art museum gallery with high ceilings large minimalist paintings and dramatic spot lighting" src="https://lh3.googleusercontent.com/aida-public/AB6AXuD1wSUnw2zazk3PqGmouG7xkrEdvxaoiJgAYPu_Uy4gHZ3Dck3wK-n_uZqw7o3jwvB_aWvL-X9YQxXZW8SU7KLmgZm-jd5_KbHj1BK9sBAqDeSo26WyyjDDQ5m9luL6f8Zvb49OyHzDrbsNOjPkN5_m72tlOCCg4K6xEBPNek_aS4iR4pYUa4ugt5mzkeU0KhEaAarOOmh3U5IgzJXyYU7exyS64hq0xtf_IrY7RNOlwAY2dELo1Mevz3WOTd6HSM8ZAH_8xUs_Ni0"/>
+<div class="absolute inset-0 bg-gradient-to-t from-slate-950 via-slate-950/20 to-transparent"></div>
+<div class="relative z-10">
+<span class="inline-block px-4 py-1 bg-tertiary text-white text-xs font-bold rounded-full mb-4">Culture</span>
+<h4 class="text-3xl font-headline font-bold text-white mb-3">Museums</h4>
+<p class="text-slate-300 max-w-sm">Enable interactive exhibits where artifacts tell their own stories through voice-guided educational challenges.</p>
+</div>
+</div>
+<!-- Card 3 -->
+<div class="group relative rounded-[2.5rem] overflow-hidden min-h-[400px] flex items-end p-10 bg-slate-900">
+<img class="absolute inset-0 w-full h-full object-cover opacity-60 group-hover:scale-110 transition-transform duration-700" data-alt="diverse professional team working around a large wooden table in a high-tech office environment" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBn-aqEibJrMPV7tB44e1FsaK952TIE5h9HarAGEDqSBUJprqdO0Ig-OphYFGl52CW7B-9QI2wwgz9yx0JAWmg5i9y7srJHvb-1f1dGsBOixXH1UHJRPEcy3p-Qf5oPsUorYmde8sR1nJjby32XOZgkJv13nqizliE5tXvmdf5O8twjEfqTenU1v2QOxxplRw4P1MbfnmH97utfOTf6fHYg0A-2ugFm6l_zwLhGr5EcVWQ8tRxKQv5HaQWOdxrUJeCMA3jovTIBcpo"/>
+<div class="absolute inset-0 bg-gradient-to-t from-slate-950 via-slate-950/20 to-transparent"></div>
+<div class="relative z-10">
+<span class="inline-block px-4 py-1 bg-secondary text-white text-xs font-bold rounded-full mb-4">Corporate</span>
+<h4 class="text-3xl font-headline font-bold text-white mb-3">Teams</h4>
+<p class="text-slate-300 max-w-sm">Collaborative learning challenges that turn any meeting room into a knowledge-building experience.</p>
+</div>
+</div>
+<!-- Card 4 -->
+<div class="group relative rounded-[2.5rem] overflow-hidden min-h-[400px] flex items-end p-10 bg-slate-900 md:translate-y-12">
+<img class="absolute inset-0 w-full h-full object-cover opacity-60 group-hover:scale-110 transition-transform duration-700" data-alt="warm cozy living room at night with family members laughing together on a sofa in soft lamp light" src="https://lh3.googleusercontent.com/aida-public/AB6AXuA22-ihd1aJJu4H8WMB608F29N24ANkIpj_cjOf1Pzm2BcBXbLhtkpccIuUdSRwvp443kH9OC9YTnRRpIX97mj_9HQ4PYshdyuLNDu0bPUsvZqPZPYoVBJKQDpp7Obmng3ziu-Km2WtWk45_3ZlXWHz2NQhdXCsgi8X0pysU1vH44XfKsY2bPYDk66aF-U_Y4gKPHORfTMwXzGsyXlfZGC-R5P78PQlX1d90l9lc4pegg5xYf8C3XyebZbC_cCZ0bYfD4idKY6DE48"/>
+<div class="absolute inset-0 bg-gradient-to-t from-slate-950 via-slate-950/20 to-transparent"></div>
+<div class="relative z-10">
+<span class="inline-block px-4 py-1 bg-error-container text-on-error-container text-xs font-bold rounded-full mb-4">Personal</span>
+<h4 class="text-3xl font-headline font-bold text-white mb-3">Families</h4>
+<p class="text-slate-300 max-w-sm">Transform the living room into an educational adventure for an engaging family learning night.</p>
+</div>
+</div>
+</div>
+</section>
+</main>
+<!-- Footer -->
+<footer class="bg-slate-50 border-t border-slate-200/50">
+<div class="max-w-screen-2xl mx-auto px-8 py-16 flex flex-col md:flex-row justify-between items-start md:items-center gap-12">
+<div class="space-y-4">
+<div class="font-manrope font-bold text-2xl text-slate-900">Room2Learn</div>
+<p class="text-slate-500 max-w-xs font-inter text-sm tracking-wide">The Knowledge Portal. Transforming real spaces into interactive learning experiences through AI.</p>
+</div>
+<div class="flex flex-wrap gap-x-12 gap-y-6">
+<a class="text-slate-500 hover:text-indigo-600 transition-colors font-inter text-sm tracking-wide" href="mailto:czaplejewicz@gmail.com">Contact Support</a>
+</div>
+</div>
+<div class="max-w-screen-2xl mx-auto px-8 pb-12">
+<div class="pt-8 border-t border-slate-200/30 text-slate-400 font-inter text-xs tracking-wide">
+                © 2026 Room2Learn. The Knowledge Portal. All rights reserved.
+            </div>
+</div>
+</footer>
+<!-- Processing Overlay (hidden by default) -->
+<div id="processing-overlay" class="hidden fixed inset-0 z-[60] flex items-center justify-center bg-surface/40 backdrop-blur-sm">
+<div class="absolute inset-0 pointer-events-none overflow-hidden">
+<div class="intelligence-pulse absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] bg-gradient-to-tr from-primary/30 via-secondary/20 to-tertiary/20 rounded-full animate-pulse" style="filter:blur(60px);opacity:0.4;"></div>
+</div>
+<div class="relative w-full max-w-2xl px-6">
+<div class="glass-card rounded-[2.5rem] p-12 shadow-[0px_40px_80px_rgba(25,28,30,0.12)] border border-white/40 flex flex-col items-center text-center">
+<div class="relative w-48 h-48 mb-12 flex items-center justify-center">
+<div class="absolute inset-0 rounded-full border-2 border-primary/10 animate-ping"></div>
+<div class="absolute inset-4 rounded-full border border-secondary/20"></div>
+<div class="absolute inset-8 rounded-full border-2 border-indigo-500/30 animate-[spin_4s_linear_infinite]"></div>
+<div class="relative w-24 h-24 bg-gradient-to-br from-primary to-primary-container rounded-full flex items-center justify-center shadow-xl shadow-indigo-500/20">
+<span class="material-symbols-outlined text-white text-4xl">cognition</span>
+</div>
+<div class="absolute inset-0 animate-[spin_6s_linear_infinite]">
+<div class="absolute top-0 left-1/2 -translate-x-1/2 w-2 h-2 bg-tertiary rounded-full shadow-[0_0_12px_rgba(0,104,93,0.6)]"></div>
+</div>
+</div>
+<div class="w-full max-w-sm">
+<h2 class="font-headline text-3xl font-bold tracking-tight text-on-surface mb-8">Building Knowledge Portal</h2>
+<div class="space-y-6 text-left">
+<div id="step-1" class="flex items-center gap-4 opacity-40">
+<div class="step-icon w-6 h-6 rounded-full bg-surface-container-high"></div>
+<span class="step-label font-inter text-on-surface-variant text-sm">Analyzing scene and generating panorama...</span>
+</div>
+<div id="step-2" class="flex items-center gap-4 opacity-40">
+<div class="step-icon w-6 h-6 rounded-full bg-surface-container-high"></div>
+<span class="step-label font-inter text-on-surface-variant text-sm">Generating media assets...</span>
+</div>
+<div id="step-3" class="flex items-center gap-4 opacity-40">
+<div class="step-icon w-6 h-6 rounded-full bg-surface-container-high"></div>
+<span class="step-label font-inter text-on-surface-variant text-sm">Building interactive hotspots...</span>
+</div>
+<div id="step-4" class="flex items-center gap-4 opacity-40">
+<div class="step-icon w-6 h-6 rounded-full bg-surface-container-high"></div>
+<span class="step-label font-inter text-on-surface-variant text-sm">Compiling learning scenario...</span>
+</div>
+</div>
+</div>
+<div class="mt-16 inline-flex items-center gap-2 px-4 py-1.5 bg-surface-container-low rounded-full">
+<span class="w-1.5 h-1.5 bg-tertiary rounded-full"></span>
+<span class="font-inter text-[10px] uppercase tracking-widest font-bold text-on-surface-variant">Multimodal Neural Sync Active</span>
+</div>
+</div>
+<div class="mt-8 text-center">
+<p class="font-inter text-sm text-on-surface-variant/80 italic">"The AI is analyzing your space and transforming it into an interactive learning environment."</p>
+</div>
+</div>
+</div>
+<script src="/static/js/upload.js"></script>
+</body></html>
