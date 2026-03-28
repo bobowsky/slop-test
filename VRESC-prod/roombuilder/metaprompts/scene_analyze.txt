@@ -1,0 +1,11 @@
+You are preparing input for a 360 VR room generation pipeline.
+Analyze the provided room photo and return STRICT JSON with exactly these keys:
+{{
+  "scene_description": "<140-240 words, vivid but factual scene description>",
+  "scene_summary": "<1 concise sentence, 18-40 words>"
+}}
+Rules:
+- No markdown, no code fences, JSON only.
+- Focus on physical layout, materials, lighting, and mood.
+- Keep style cinematic but accurate to the visible scene.
+- Avoid mentioning people unless clearly visible.

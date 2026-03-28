@@ -1,0 +1,39 @@
+Analyse the provided 360-degree equirectangular image. Identify every element that could be realistically animated as a subtle looping motion in a VR scene.
+
+Output a single JSON object exactly matching this structure:
+
+{{
+  "scene_summary": "<one sentence: space type, era, mood>",
+  "animatables": [
+    {{
+      "id": "<snake_case_identifier>",
+      "element": "<what it is>",
+      "location": "<where in scene>",
+      "animation_type": "<flame|smoke|water|wind|mechanical|light|particle|screen|other>",
+      "intensity": "<subtle|moderate|strong>",
+      "loop": "<seamless|ping-pong>",
+      "priority": <1|2|3>
+    }}
+  ]
+}}
+
+Animation type definitions:
+- flame: fire in fireplace, candles, gas burners, torches
+- smoke: chimney, incense, cigarette, steam from radiator or cup
+- water: rain on glass, aquarium, stream, fountain, condensation drip
+- wind: curtains swaying, leaves on plants, loose papers, hanging fabric
+- mechanical: clock hands, ceiling fan, spinning record, reel-to-reel tape
+- light: flickering bulb, neon sign buzz, candlelight pulse, TV static
+- particle: dust motes in light beam, falling snow through window, embers
+- screen: TV broadcast, monitor display, radio dial glow
+- other: describe in element field
+
+Priority rules:
+- 1 (must animate): stillness of this element would feel unnatural, e.g. visible fireplace with no flame
+- 2 (should animate): motion would significantly improve immersion
+- 3 (optional): subtle enhancement only
+
+Rules:
+- Only include elements actually visible in the image, do not invent
+- Prefer subtle over strong: VR animations must not distract from the space
+- Output valid JSON only, no commentary outside the JSON block
