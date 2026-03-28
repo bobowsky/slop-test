@@ -1,0 +1,26 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "$id": "info",
+  "title": "Info gadget — popup keys (hotspot.json › popup)",
+  "description": "Fields required by buildInfo(). Also inherits the base shell fields defined in panel.schema.json.",
+  "allOf": [
+    { "$ref": "panel.schema.json" }
+  ],
+  "properties": {
+    "interaction": {
+      "const": "info"
+    },
+    "body": {
+      "type": "string",
+      "description": "Descriptive text shown in the panel body."
+    },
+    "image": {
+      "type": "string",
+      "description": "Optional image URL or asset ID displayed above the text.",
+      "examples": [
+        "https://example.com/image.jpg"
+      ]
+    }
+  },
+  "required": ["interaction", "title", "body"]
+}

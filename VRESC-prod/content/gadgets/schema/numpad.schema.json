@@ -1,0 +1,35 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "$id": "numpad",
+  "title": "Numpad gadget — popup keys (hotspot.json › popup)",
+  "description": "Fields required by buildNumpad(). Also inherits the base shell fields defined in panel.schema.json.",
+  "allOf": [
+    { "$ref": "panel.schema.json" }
+  ],
+  "properties": {
+    "interaction": {
+      "const": "numpad"
+    },
+    "prompt": {
+      "type": "string",
+      "description": "Question text shown above the numpad."
+    },
+    "answer": {
+      "type": "string",
+      "description": "Correct numeric answer the player must enter, e.g. \"7\" or \"1957\"."
+    },
+    "on_success": {
+      "type": "string",
+      "description": "Message displayed when the player enters the correct answer."
+    },
+    "on_fail": {
+      "type": "string",
+      "description": "Message displayed when the player enters a wrong answer."
+    },
+    "hint": {
+      "type": "string",
+      "description": "Optional hint text. HINT button is hidden when this key is absent."
+    }
+  },
+  "required": ["interaction", "title", "prompt", "answer", "on_success", "on_fail"]
+}
