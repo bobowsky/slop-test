@@ -1,0 +1,27 @@
+{
+  "name": "room2learn",
+  "version": "1.0.0",
+  "description": "Multimodal AI app that turns real-world room photos into interactive educational experiences",
+  "private": true,
+  "scripts": {
+    "lint:js": "eslint static/js/**/*.js",
+    "lint:html": "htmlhint static/**/*.html",
+    "lint:web": "npm run lint:js && npm run lint:html"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/yazon/room2escape.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/yazon/room2escape/issues"
+  },
+  "homepage": "https://github.com/yazon/room2escape#readme",
+  "devDependencies": {
+    "@eslint/js": "^9.39.4",
+    "eslint": "^9.39.4",
+    "htmlhint": "^1.9.2"
+  }
+}
