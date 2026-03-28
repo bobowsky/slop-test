@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>VRESC — WebVR Hotspot Viewer</title>
+  <link rel="stylesheet" href="/static/css/style.css">
+
+  <!--
+    A-Frame is loaded globally so its custom elements are registered
+    before the VR container is injected dynamically.
+  -->
+  <!--<script src="https://aframe.io/releases/1.5.0/aframe.min.js"></script>-->
+  <script src="static/js/aframe.min.js"></script>
+</head>
+<body>
+  <div id="app">
+
+    <!-- ── Toolbar ────────────────────────────────────────── -->
+    <header id="toolbar">
+      <h1>VRESC</h1>
+      <button class="mode-btn active" id="btn-2d">2D View</button>
+      <button class="mode-btn"        id="btn-vr">VR View</button>
+    </header>
+
+    <!-- ── Main view area ──────────────────────────────────── -->
+    <main id="view-area">
+
+      <!-- 2D canvas viewer -->
+      <div class="view-container" id="container-2d">
+        <canvas id="canvas-2d"></canvas>
+      </div>
+
+      <!-- VR / A-Frame viewer (scene injected dynamically) -->
+      <div class="view-container hidden" id="container-vr"></div>
+
+    </main>
+
+  </div>
+
+
+  <!-- ES module entry point -->
+  <script type="module" src="/static/js/app.js"></script>
+</body>
+</html>
