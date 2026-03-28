@@ -1,0 +1,22 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "$id": "panel",
+  "title": "Panel shell — shared popup keys (hotspot.json › popup)",
+  "description": "Base fields read by buildShell() for every hotspot, regardless of interaction type. Gadget-specific fields are defined in each gadget's own schema.",
+  "type": "object",
+  "required": ["interaction", "title"],
+  "properties": {
+    "interaction": {
+      "type": "string",
+      "description": "Gadget name. Must match one of the available gadget schema ids: \"numpad\", \"toggle-bank\", \"info\"."
+    },
+    "title": {
+      "type": "string",
+      "description": "Panel heading shown in the title bar and content area."
+    },
+    "badge": {
+      "type": "string",
+      "description": "Optional small category label shown below the title bar, e.g. \"Puzzle · Infrastructure\"."
+    }
+  }
+}

@@ -1,0 +1,42 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "$id": "room",
+  "title": "Room layout — {roomId}.json",
+  "description": "Defines hotspot layout for a single room. Contains only geometry (id + polygon). All content (label, popup) lives in the hotspot's own hotspot.json.",
+  "type": "object",
+  "required": ["hotspots"],
+  "properties": {
+    "hotspots": {
+      "type": "array",
+      "minItems": 1,
+      "description": "Ordered list of hotspot layout entries. Order determines rendering/click priority.",
+      "items": {
+        "type": "object",
+        "required": ["id", "polygon"],
+        "additionalProperties": false,
+        "properties": {
+          "id": {
+            "type": "string",
+            "pattern": "^hs_[a-z0-9_]+$",
+            "description": "Unique hotspot identifier. Must start with 'hs_'. Used to locate the hotspot's folder: content/rooms/{roomId}/hotspots/{id}/"
+          },
+          "polygon": {
+            "type": "array",
+            "minItems": 3,
+            "description": "Bounding polygon in normalised equirectangular coordinates. Each point is [nx, ny] where nx ∈ [0,1] (left→right) and ny ∈ [0,1] (top→bottom).",
+            "items": {
+              "type": "array",
+              "minItems": 2,
+              "maxItems": 2,
+              "items": {
+                "type": "number",
+                "minimum": 0,
+                "maximum": 1
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}

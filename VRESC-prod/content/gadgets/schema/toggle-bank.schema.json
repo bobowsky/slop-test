@@ -1,0 +1,48 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "$id": "toggle-bank",
+  "title": "Toggle-bank gadget — popup keys (hotspot.json › popup)",
+  "description": "Fields required by buildToggleBank(). Also inherits the base shell fields defined in panel.schema.json.",
+  "allOf": [
+    { "$ref": "panel.schema.json" }
+  ],
+  "properties": {
+    "interaction": {
+      "const": "toggle-bank"
+    },
+    "prompt": {
+      "type": "string",
+      "description": "Instruction text shown above the switch bank."
+    },
+    "switches": {
+      "type": "array",
+      "items": { "type": "string" },
+      "minItems": 2,
+      "maxItems": 5,
+      "description": "Ordered list of switch labels, e.g. [\"TV\", \"WINDOW\", \"CABINET\", \"HALL\"]."
+    },
+    "initial": {
+      "type": "array",
+      "items": { "type": "boolean" },
+      "description": "Initial on/off state per switch. Must be the same length as switches."
+    },
+    "target": {
+      "type": "array",
+      "items": { "type": "boolean" },
+      "description": "Correct on/off pattern the player must reach. Must be the same length as switches."
+    },
+    "on_success": {
+      "type": "string",
+      "description": "Message displayed when the player sets the correct pattern."
+    },
+    "on_fail": {
+      "type": "string",
+      "description": "Message displayed when CHECK is pressed with a wrong pattern."
+    },
+    "hint": {
+      "type": "string",
+      "description": "Optional hint text. HINT button is hidden when this key is absent."
+    }
+  },
+  "required": ["interaction", "title", "prompt", "switches", "initial", "target", "on_success", "on_fail"]
+}
