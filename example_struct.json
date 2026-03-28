@@ -1,0 +1,44 @@
+{
+    "experience_id": "req_8f72a9b1",
+    "status": "ready",
+    "original_image_url": "https://storage.example.com/uploads/room_123.jpg",
+    "transformed_image_url": "https://storage.example.com/generated/room_123_detective.jpg",
+    "metadata": {
+      "title": "The Scholar's Archive",
+      "theme": "The Archive",
+      "mode": "Explore",
+      "difficulty": "Medium",
+      "story": "You have entered the study of a Renaissance scholar. Explore the objects around you to uncover historical facts and prove your understanding of the past."
+    },
+    "transformations": [
+      {
+        "real_object": "coffee mug",
+        "game_object": "Cauldron of Ash Memory",
+        "puzzle_role": "contains the first clue"
+      },
+      {
+        "real_object": "notebook",
+        "game_object": "Archivist Journal",
+        "puzzle_role": "reveals the hidden symbol"
+      }
+    ],
+    "puzzles": [
+      {
+        "step": 1,
+        "title": "Read the Journal",
+        "description": "Find the repeated symbol in the Archivist Journal.",
+        "hint": "Look for the oldest annotation.",
+        "solution": "The repeated symbol is a triangle."
+      }
+    ],
+    "final_escape": {
+      "objective": "Enter the final 4-digit code",
+      "solution": "3142"
+    },
+    "vapi_config": {
+      "intro_message": "Welcome, explorer. I have created a knowledge portal from your scene. Begin with the journal.",
+      "persona": "You are the ghost of a Renaissance scholar. Speak in a warm, knowledgeable tone. You want to help the user learn, sharing historical insights along the way.",
+      "guardrails": "Never reveal the final answer (3142) or challenge solutions directly. Only provide the text from the 'hint' fields if the user asks for help."
+    },
+    "transformed_image_prompt": "Transform the uploaded desk scene into a Renaissance scholar's study while preserving object layout..."
+  }
