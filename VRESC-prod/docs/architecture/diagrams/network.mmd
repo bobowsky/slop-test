@@ -1,0 +1,17 @@
+flowchart TD
+    Browser["Browser"]
+
+    subgraph Dev["Development only"]
+        Vite["Vite :5173\nHTTPS (self-signed)\nnpm run dev"]
+    end
+
+    Flask["Flask :5000\nHTTP\npython app.py"]
+    Content["content/\n(filesystem)"]
+    CDN["aframe.io CDN\nA-Frame 1.5.0"]
+
+    Browser -->|"GET / (HTML shell)"| Vite
+    Browser -->|"GET /api/scene\nGET /static/**"| Vite
+    Vite -->|"proxy /api, /static, /resource"| Flask
+    Browser -->|"GET /content/** (media, JS modules)\ndirect to :5000"| Flask
+    Browser -->|"<script src aframe.min.js>"| CDN
+    Flask --> Content
