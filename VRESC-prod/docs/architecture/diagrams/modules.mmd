@@ -1,0 +1,22 @@
+flowchart TD
+    appjs["app.js\nEntry point"]
+    flask["Flask app.py\n:5000"]
+    mode2d["mode2d.js\n2D canvas viewer"]
+    modeVR["modeVR.js\nA-Frame VR viewer"]
+    hotspots["hotspots.js\nGeometry utils"]
+    panel["panel.js\nPanel shell builder"]
+    gadgets["Gadget modules\ninfo.js / numpad.js\ntoggle-bank.js"]
+    iface["interface.js\n(per hotspot)"]
+    content["content/\nroomId.json\nhotspot.json\nmedia files"]
+
+    appjs -->|"fetch /api/scene"| flask
+    flask --> content
+    appjs -->|"init2D"| mode2d
+    appjs -->|"initVR"| modeVR
+    mode2d --> hotspots
+    modeVR --> hotspots
+    modeVR -->|"dynamic import on click"| panel
+    modeVR -->|"dynamic import on click"| iface
+    iface --> gadgets
+    panel -->|"buildShell → root entity"| modeVR
+    gadgets -->|"mounts into root entity"| modeVR
