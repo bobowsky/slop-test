@@ -1,0 +1,17 @@
+Generate a music prompt for a seamlessly looping ambient background track for a VR scene.
+
+Scene context:
+{scene_context}
+
+Output a single paragraph music prompt for the audio generation model. Include all of the following:
+- Genre and subgenre matching the detected era and mood
+- Key instruments appropriate to era and setting (no anachronistic choices)
+- Tempo described in words, not BPM (e.g. slow drifting, steady quiet pulse)
+- Texture: layered or sparse, wet or dry, warm or cold
+- Mood arc: must stay flat, this is a loop with no build or drop
+- Explicit instruction: seamlessly looping, no fade-in, no fade-out, no crescendo
+- Duration: 30 to 90 seconds loop length
+- No lyrics or vocals unless the scene is a performance space
+- Volume envelope must be flat, suitable for continuous VR background playback
+
+Output only the music prompt paragraph, no other text.

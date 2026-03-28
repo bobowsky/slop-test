@@ -1,0 +1,37 @@
+EQUIRECTANGULAR 360° PANORAMA — FORMAT CONTRACT:
+
+This image is a spherical equirectangular projection. It will be loaded into a VR viewer and mapped onto the inside of a sphere. The viewer stands at the centre and can look in any direction.
+
+seamlessly tiling horizontally, left edge matches right edge, no seam, no cut, perfectly wrapping 360 degrees, left equals right, continuous wrap, seamless loop, horizontally tileable
+
+Mandatory projection rules:
+- Aspect ratio is exactly 2:1 (width is twice the height). Every pixel must be rendered.
+- The horizon sits at exactly 50% of image height. Never shift it for artistic reasons.
+- Left edge identical to right edge. Seamless horizontal wrap. No seam.
+- Nadir (bottom 10% of image): the ground directly below the observer, seen from 1.60 m height. Fully rendered, no voids, no logos.
+- Zenith (top 10% of image): the sky or ceiling directly above the observer. Fully rendered, no voids.
+- Equirectangular distortion is expected and correct: objects near the top and bottom poles are stretched horizontally, straight lines bow, faces near the poles elongate. Do not correct this distortion — it is the projection.
+- The scene must feel life-size in VR. No miniature, toy-scale, or diorama perspective.
+- No black bars, dark vignettes, letterboxing, watermarks, or unrendered regions anywhere.
+
+Observer position and spatial framing:
+- The observer stands at a fixed point 1.80 m above the ground.
+- There is no "camera angle" or "hero shot" — the image wraps fully around the observer.
+- All scene elements must be distributed around the observer across all 360° of horizontal view and the full vertical arc from nadir to zenith.
+- Do not compose the scene for a single viewpoint. Every horizontal direction must contain meaningful, physically consistent content.
+
+Lighting:
+- Mix at least two colour temperatures: warm practicals (1600–3200 K) and cool ambient (5500–7500 K).
+- Physically correct light fall-off and directional shadows, consistent across all 360°.
+- Shadows are lifted (not crushed black); highlights roll off gently.
+- All surfaces physically-based; reflections match actual light sources present in the scene.
+
+Texture and detail:
+- Texture detail equivalent to 4K per cubemap face.
+- No flat, diffuse, or studio-lit surfaces.
+
+---
+
+SCENE:
+
+{scene_description}

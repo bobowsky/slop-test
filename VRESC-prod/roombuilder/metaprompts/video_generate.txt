@@ -1,0 +1,36 @@
+You are generating a video generation prompt for a 360-degree VR scene.
+
+Scene summary from analysis:
+{scene_summary}
+
+Detected animatable elements (priority 1 = must animate, 2 = should, 3 = optional):
+{animatables_list}
+
+Write a single video generation prompt paragraph followed by a technical spec block. Rules:
+- Open with the scene summary as a scene-setting sentence
+- State: static camera, no camera movement, no zoom, no pan
+- State: equirectangular 360-degree format, seamless horizontal wrap, 2:1 aspect ratio
+- For each priority 1 element: describe motion in concrete physical terms using vocabulary below
+- For each priority 2 element: include if it allows natural cycling within the loop
+- Omit priority 3 elements unless they dominate the scene
+- All motions are subtle, physically realistic, seamlessly looping
+- Close with: all other elements completely still, no wind effects outside listed items
+
+Motion vocabulary:
+- flame: low flickering flame with slow orange-amber colour variation, 0.5-2 Hz
+- smoke: thin wisp rising vertically, slight lateral drift, dissolving at top
+- water: streaks of rain tracking diagonally down glass, new streaks appearing at top
+- wind/curtain: slow lateral sway 3-8 cm amplitude, 0.2-0.4 Hz, soft fabric physics
+- mechanical: continuous rotation at N RPM, no jitter
+- light flicker: irregular pulse 0.3-1.5 Hz, brightness variation 15%, warm colour
+- particle/dust: slow upward drift, random micro-jitter, semi-transparent
+- screen: low-contrast image noise or colour bar animation on display surface
+
+After the prompt paragraph, output this spec block filled in:
+
+[VIDEO-SPEC]
+format=360-equirectangular-2:1
+camera=static-no_movement
+loop=seamless
+motion=listed_elements_only
+stillness=all_other_elements
