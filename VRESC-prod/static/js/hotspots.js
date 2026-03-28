@@ -116,3 +116,4 @@ export function showToast(message) {
   clearTimeout(toastTimer);
   toastTimer = setTimeout(() => toast.classList.remove("visible"), 3500);
 }
+
