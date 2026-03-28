@@ -1,0 +1,138 @@
+# stages.yaml — Complete room build pipeline.
+#
+# Steps are executed in dependency order, not top-to-bottom.
+# depends_on: steps whose output_artifact must exist before this step runs.
+# output_artifact: file produced in builder/artifacts/{room_id}/ (null for automated write steps).
+# prompt: metaprompt filename in builder/metaprompts/ — omit for action steps.
+# action: Python function name in helpers/actions.py — omit for prompt steps.
+# auto: variables injected into the prompt at render time (loader function names from loaders.py).
+# required: params fields that must be present for this step to run.
+
+# ── 0 ──────────────────────────────────────────────────────────────────────
+# Prompt: analyse the uploaded room photo and produce scene description.
+# Requires image_path in params.  If image_path is absent (CLI mode with
+# explicit scene_description), this step is skipped and downstream stages
+# use the values already present in params.
+scene_analyze:
+  prompt: scene_analyze.txt
+  depends_on: []
+  required:
+    - image_path
+  auto: {}
+  output_artifact: scene_analyze.json
+
+# ── 1 ──────────────────────────────────────────────────────────────────────
+# Prompt: generate the 360° panorama.
+# Drop the rendered image into artifacts/ to unlock downstream steps.
+image_generate:
+  prompt: image_generate.txt
+  depends_on: []
+  required: []
+  auto: {}
+  output_artifact: panorama.jpg
+
+# ── 2 ──────────────────────────────────────────────────────────────────────
+# Prompt: detect animatable elements in the panorama.
+# AI analyses the image and returns a JSON object; save the response here.
+detect_animatables:
+  prompt: detect_animatables.txt
+  depends_on:
+    - image_generate
+  required: []
+  auto: {}
+  output_artifact: detect_animatables.json
+
+# ── 3 ──────────────────────────────────────────────────────────────────────
+# Prompt: generate ambient music for the scene.
+# Runs in parallel with detect_animatables — only needs the image.
+music_generate:
+  prompt: music_generate.txt
+  depends_on:
+    - image_generate
+  required: []
+  auto: {}
+  output_artifact: music.mp3
+
+# ── 4 ──────────────────────────────────────────────────────────────────────
+# Prompt: generate the animated 360° video using the animatables analysis.
+video_generate:
+  prompt: video_generate.txt
+  depends_on:
+    - detect_animatables
+  required: []
+  auto:
+    animatables_list: animatables
+  output_artifact: video.mp4
+
+# ── 5 ──────────────────────────────────────────────────────────────────────
+# Action: extract the first frame of the video as a still for hotspot grounding.
+# Uses ffmpeg — runs automatically once video.mp4 is present.
+extract_first_frame:
+  action: extract_first_frame
+  depends_on:
+    - video_generate
+  required:
+    - room_id
+  auto: {}
+  output_artifact: first_frame.jpg
+
+# ── 6 ──────────────────────────────────────────────────────────────────────
+# Prompt: identify all hotspot polygons from the first frame.
+# AI returns a {room_id}.json layout; save the response here.
+hotspot_grounding:
+  prompt: hotspot_grounding.txt
+  depends_on:
+    - extract_first_frame
+  required: []
+  auto:
+    room_schema: room_schema
+  output_artifact: "{room_id}.json"
+
+# ── 7 ──────────────────────────────────────────────────────────────────────
+# Prompt: generate content (title, body/puzzle, gadget type) for every hotspot.
+# AI returns raw JSON blocks (one per hotspot); save the full response here.
+hotspot_content:
+  prompt: hotspot_content.txt
+  depends_on:
+    - hotspot_grounding
+  required:
+    - room_id
+  auto:
+    gadget_schemas: gadget_schemas
+    room_json: room_json
+  output_artifact: hotspot_content_raw.txt
+
+# ── 8 ──────────────────────────────────────────────────────────────────────
+# Action: parse hotspot_content_raw.txt and write all hotspot.json files.
+write_hotspot_json:
+  action: write_hotspot_json
+  depends_on:
+    - hotspot_content
+  required:
+    - room_id
+  auto: {}
+  output_artifact: null
+
+# ── 9 ──────────────────────────────────────────────────────────────────────
+# Action: generate interface.js for every hotspot from its interaction type.
+write_hotspot_interfaces:
+  action: write_hotspot_interfaces
+  depends_on:
+    - write_hotspot_json
+  required:
+    - room_id
+  auto: {}
+  output_artifact: null
+
+# ── 10 ─────────────────────────────────────────────────────────────────────
+# Action: deploy the complete built room from artifacts/ into content/rooms/{room_id}/.
+# Copies layout JSON, all hotspot.json + interface.js files, and media assets.
+deploy_room:
+  action: deploy_room
+  depends_on:
+    - write_hotspot_interfaces
+    - hotspot_grounding
+  required:
+    - room_id
+  auto: {}
+  output_artifact: null
