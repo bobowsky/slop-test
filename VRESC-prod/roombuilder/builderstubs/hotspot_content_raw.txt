@@ -1,0 +1,289 @@
+```jsonc
+// content/rooms/room7/hotspots/hs_left_panel_block/hotspot.json
+{
+  "popup": {
+    "interaction": "info",
+    "title": "Weathered Panel Block",
+    "badge": "Architecture . Residential",
+    "body": "A slab of prefabricated concrete rises with repetitive precision, its surface stained by decades of rain and frost. The seams between panels form a rigid grid, once a symbol of efficiency. Faint discolorations suggest past repairs. It stands quiet, holding countless unseen lives behind its uniform face."
+  }
+}
+```
+
+```jsonc
+// content/rooms/room7/hotspots/hs_left_overgrown_shrubs/hotspot.json
+{
+  "popup": {
+    "interaction": "info",
+    "title": "Encroaching Shrub Growth",
+    "badge": "Nature . Urban",
+    "body": "Untrimmed shrubs spill outward, reclaiming space from the gravel path. Their branches are dense and tangled, dotted with dry leaves from late summer. Neglect has allowed them to grow wild. In the fading light, they soften the otherwise harsh geometry of the estate."
+  }
+}
+```
+
+```jsonc
+// content/rooms/room7/hotspots/hs_gravel_path_left/hotspot.json
+{
+  "popup": {
+    "interaction": "info",
+    "title": "Worn Gravel Path",
+    "badge": "Infrastructure . Courtyard",
+    "body": "Loose gravel crunches underfoot, forming a narrow trail shaped by repeated use. The path curves slightly, guided more by habit than design. Small stones have scattered into the grass edges. It suggests quiet routines—short walks, lingering conversations, daily returns home."
+  }
+}
+```
+
+```jsonc
+// content/rooms/room7/hotspots/hs_arched_concrete_passageway/hotspot.json
+{
+  "popup": {
+    "interaction": "info",
+    "title": "Brutalist Archway Passage",
+    "badge": "Architecture . Structure",
+    "body": "A heavy concrete arch frames the courtyard like a threshold between worlds. Its low curve feels imposing, almost protective. The surface is rough, marked by time and weather. Passing beneath it, voices echo softly, as if the structure remembers every conversation."
+  }
+}
+```
+
+```jsonc
+// content/rooms/room7/hotspots/hs_building_facade_windows/hotspot.json
+{
+  "popup": {
+    "interaction": "info",
+    "title": "Rows Of Casement Windows",
+    "badge": "Architecture . Detail",
+    "body": "Identical windows repeat in strict alignment, each one slightly different in wear. Some reflect the amber sky, others remain dark and opaque. Curtains hang unevenly behind the glass. Together they form a quiet mosaic of private lives stacked one above another."
+  }
+}
+```
+
+```jsonc
+// content/rooms/room7/hotspots/hs_curved_balcony_overhang/hotspot.json
+{
+  "popup": {
+    "interaction": "info",
+    "title": "Curved Balcony Overhang",
+    "badge": "Architecture . Detail",
+    "body": "A rare curve interrupts the building’s rigid lines, forming a shallow overhang. Its underside catches warm sunlight, glowing softly against the grey concrete. The shape hints at a design ambition long faded. It shelters the entrance below like a silent gesture."
+  }
+}
+```
+
+```jsonc
+// content/rooms/room7/hotspots/hs_entrance_door/hotspot.json
+{
+  "popup": {
+    "interaction": "numpad",
+    "title": "Entrance Door Code",
+    "badge": "Puzzle . Objects",
+    "prompt": "The door stands beneath the arch, worn but functional. Count the visible floors in the facade above this entrance, including the ground level. Use that number as the code. How many stacked levels can you clearly see?",
+    "answer": "5",
+    "on_success": "The number clicks into place, echoing faintly in the stillness of the courtyard.",
+    "on_fail": "Look upward—each horizontal row of windows marks a level to count.",
+    "hint": "Count distinct rows of windows above the door."
+  }
+}
+```
+
+```jsonc
+// content/rooms/room7/hotspots/hs_wall_lamp/hotspot.json
+{
+  "popup": {
+    "interaction": "info",
+    "title": "Faded Wall Lamp",
+    "badge": "Infrastructure . Lighting",
+    "body": "A small wall-mounted lamp sits just above eye level, its casing yellowed with age. It appears functional but dim, designed more for necessity than comfort. Dust gathers around its edges. At night, it likely casts a weak glow over the doorway."
+  }
+}
+```
+
+```jsonc
+// content/rooms/room7/hotspots/hs_young_woman/hotspot.json
+{
+  "popup": {
+    "interaction": "info",
+    "title": "Woman By Doorframe",
+    "badge": "People . Moment",
+    "body": "She leans casually against the frame, arms folded, her posture relaxed but guarded. The white of her shirt catches the last sunlight. Her gaze is steady, focused on the conversation. There’s a quiet familiarity in the way she stands, as if she belongs here."
+  }
+}
+```
+
+```jsonc
+// content/rooms/room7/hotspots/hs_young_man/hotspot.json
+{
+  "popup": {
+    "interaction": "info",
+    "title": "Man In Red Shirt",
+    "badge": "People . Moment",
+    "body": "He stands slightly forward, weight shifting between his feet as he speaks. The dark red shirt contrasts with the muted tones around him. His gestures are small but expressive. The scene feels suspended, like a conversation that has happened many times before."
+  }
+}
+```
+
+```jsonc
+// content/rooms/room7/hotspots/hs_courtyard_gravel_path_center/hotspot.json
+{
+  "popup": {
+    "interaction": "info",
+    "title": "Central Courtyard Path",
+    "badge": "Infrastructure . Courtyard",
+    "body": "The main stretch of gravel runs straight through the courtyard, guiding movement between entrances. Its surface is uneven, shaped by years of footsteps. The warm light stretches shadows across it. It feels like the quiet spine of the space."
+  }
+}
+```
+
+```jsonc
+// content/rooms/room7/hotspots/hs_wild_grass_left_courtyard/hotspot.json
+{
+  "popup": {
+    "interaction": "info",
+    "title": "Untamed Courtyard Grass",
+    "badge": "Nature . Urban",
+    "body": "Tall grass grows freely, bending slightly in the evening air. Its edges blur into the gravel path without clear boundaries. Neglect has turned it soft and irregular. It introduces a gentle, organic rhythm against the rigid concrete surroundings."
+  }
+}
+```
+
+```jsonc
+// content/rooms/room7/hotspots/hs_distant_panel_block_center/hotspot.json
+{
+  "popup": {
+    "interaction": "info",
+    "title": "Distant Housing Block",
+    "badge": "Architecture . Residential",
+    "body": "Another block rises beyond the courtyard, partially obscured by trees. Its silhouette mirrors the foreground building, repeating the same utilitarian design. Distance softens its details into shadow. It suggests the vast scale of the surrounding estate."
+  }
+}
+```
+
+```jsonc
+// content/rooms/room7/hotspots/hs_sunset_sky/hotspot.json
+{
+  "popup": {
+    "interaction": "info",
+    "title": "Amber Sunset Sky",
+    "badge": "Atmosphere . Light",
+    "body": "The sky glows with deep orange and gold, fading slowly into cooler tones. Light spills across the scene at a low angle, stretching every shadow. The warmth contrasts with the cold concrete. It feels like the closing moment of a long summer day."
+  }
+}
+```
+
+```jsonc
+// content/rooms/room7/hotspots/hs_treeline_center/hotspot.json
+{
+  "popup": {
+    "interaction": "info",
+    "title": "Tree Line Boundary",
+    "badge": "Nature . Landscape",
+    "body": "A line of trees forms a soft boundary beyond the buildings. Their leaves catch fragments of golden light, shimmering faintly. They partially conceal what lies further out. The greenery offers a quiet contrast to the rigid urban forms."
+  }
+}
+```
+
+```jsonc
+// content/rooms/room7/hotspots/hs_right_arch_pillar/hotspot.json
+{
+  "popup": {
+    "interaction": "info",
+    "title": "Right Arch Pillar",
+    "badge": "Architecture . Structure",
+    "body": "This thick pillar supports the weight of the arch above, its surface rough and worn. Small chips and stains mark years of exposure. It stands solid and unmoving. Up close, it feels heavier than it looks from afar."
+  }
+}
+```
+
+```jsonc
+// content/rooms/room7/hotspots/hs_wild_grass_right_courtyard/hotspot.json
+{
+  "popup": {
+    "interaction": "info",
+    "title": "Right Side Grass Patch",
+    "badge": "Nature . Urban",
+    "body": "Another patch of wild grass spreads unevenly along the right side of the courtyard. Its growth is patchy but persistent. The blades catch light differently, creating subtle texture. It suggests nature slowly reclaiming forgotten space."
+  }
+}
+```
+
+```jsonc
+// content/rooms/room7/hotspots/hs_gravel_path_right/hotspot.json
+{
+  "popup": {
+    "interaction": "info",
+    "title": "Right Gravel Track",
+    "badge": "Infrastructure . Courtyard",
+    "body": "This section of the path branches slightly, leading toward the outer edges of the courtyard. The gravel here is more scattered, less compacted. Fewer footsteps seem to pass this way. It feels quieter, almost overlooked."
+  }
+}
+```
+
+```jsonc
+// content/rooms/room7/hotspots/hs_right_panel_block/hotspot.json
+{
+  "popup": {
+    "interaction": "info",
+    "title": "Right Panel Building",
+    "badge": "Architecture . Residential",
+    "body": "Another facade stands to the right, echoing the same modular construction. Its windows align in strict rows, some reflecting the sunset. The repetition feels endless. Together, the buildings form a dense and uniform horizon."
+  }
+}
+```
+
+```jsonc
+// content/rooms/room7/hotspots/hs_right_shrubs/hotspot.json
+{
+  "popup": {
+    "interaction": "info",
+    "title": "Dense Shrub Cluster",
+    "badge": "Nature . Urban",
+    "body": "Thicker and more tangled than the others, these shrubs form a dense cluster near the building. Their shadows deepen as the sun lowers. Leaves overlap chaotically. It creates a small pocket of darkness at ground level."
+  }
+}
+```
+
+```jsonc
+// content/rooms/room7/hotspots/hs_scattered_clouds/hotspot.json
+{
+  "popup": {
+    "interaction": "toggle-bank",
+    "title": "Cloud Light Pattern",
+    "badge": "Puzzle . Atmosphere",
+    "prompt": "Some clouds glow brightly while others remain dim against the sunset. Toggle the pattern so only the clouds catching direct sunlight are active. Which parts of the sky appear illuminated rather than shadowed?",
+    "switches": ["LEFT","MID","RIGHT"],
+    "initial": [false, true, false],
+    "target": [true, true, false],
+    "on_success": "The sky’s pattern settles into harmony with the fading light.",
+    "on_fail": "Notice which clouds carry the warm glow and which fade into grey.",
+    "hint": "Only clouds reflecting orange light should be on."
+  }
+}
+```
+
+---
+
+### Summary Table
+
+| id                              | gadget      | title                     |
+| ------------------------------- | ----------- | ------------------------- |
+| hs_left_panel_block             | info        | Weathered Panel Block     |
+| hs_left_overgrown_shrubs        | info        | Encroaching Shrub Growth  |
+| hs_gravel_path_left             | info        | Worn Gravel Path          |
+| hs_arched_concrete_passageway   | info        | Brutalist Archway Passage |
+| hs_building_facade_windows      | info        | Rows Of Casement Windows  |
+| hs_curved_balcony_overhang      | info        | Curved Balcony Overhang   |
+| hs_entrance_door                | numpad      | Entrance Door Code        |
+| hs_wall_lamp                    | info        | Faded Wall Lamp           |
+| hs_young_woman                  | info        | Woman By Doorframe        |
+| hs_young_man                    | info        | Man In Red Shirt          |
+| hs_courtyard_gravel_path_center | info        | Central Courtyard Path    |
+| hs_wild_grass_left_courtyard    | info        | Untamed Courtyard Grass   |
+| hs_distant_panel_block_center   | info        | Distant Housing Block     |
+| hs_sunset_sky                   | info        | Amber Sunset Sky          |
+| hs_treeline_center              | info        | Tree Line Boundary        |
+| hs_right_arch_pillar            | info        | Right Arch Pillar         |
+| hs_wild_grass_right_courtyard   | info        | Right Side Grass Patch    |
+| hs_gravel_path_right            | info        | Right Gravel Track        |
+| hs_right_panel_block            | info        | Right Panel Building      |
+| hs_right_shrubs                 | info        | Dense Shrub Cluster       |
+| hs_scattered_clouds             | toggle-bank | Cloud Light Pattern       |

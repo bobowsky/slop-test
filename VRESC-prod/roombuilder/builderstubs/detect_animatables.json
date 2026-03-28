@@ -1,0 +1,77 @@
+{
+  "scene_summary": "Soviet-era brutalist residential courtyard at golden hour sunset, melancholic yet warm in mood.",
+  "animatables": [
+    {
+      "id": "golden_sun_rays",
+      "element": "Sun rays and lens flare glow through archway opening",
+      "location": "Center-right, low on horizon through the concrete archway",
+      "animation_type": "light",
+      "intensity": "subtle",
+      "loop": "seamless",
+      "priority": 1
+    },
+    {
+      "id": "tall_grass_wind",
+      "element": "Tall overgrown grass and wildflowers in the open field",
+      "location": "Center and right of scene, between buildings and path",
+      "animation_type": "wind",
+      "intensity": "subtle",
+      "loop": "seamless",
+      "priority": 1
+    },
+    {
+      "id": "foreground_weeds_wind",
+      "element": "Low shrubs and weeds bordering the gravel path",
+      "location": "Left foreground and center foreground flanking the path",
+      "animation_type": "wind",
+      "intensity": "subtle",
+      "loop": "seamless",
+      "priority": 2
+    },
+    {
+      "id": "tree_foliage_wind",
+      "element": "Birch and deciduous trees visible between buildings",
+      "location": "Center background and right background near distant buildings",
+      "animation_type": "wind",
+      "intensity": "subtle",
+      "loop": "seamless",
+      "priority": 2
+    },
+    {
+      "id": "cloud_drift",
+      "element": "Scattered clouds in the sky above the scene",
+      "location": "Upper half of equirectangular image, across the sky band",
+      "animation_type": "other",
+      "intensity": "subtle",
+      "loop": "seamless",
+      "priority": 2
+    },
+    {
+      "id": "dust_motes_archway",
+      "element": "Dust and particle motes in the golden light shafts under the concrete overhang",
+      "location": "Under the large concrete arch, center of scene",
+      "animation_type": "particle",
+      "intensity": "subtle",
+      "loop": "seamless",
+      "priority": 2
+    },
+    {
+      "id": "sunlight_flicker",
+      "element": "Subtle pulsing of the golden sunlight intensity as clouds drift across the sun",
+      "location": "Entire scene lighting, most visible on illuminated wall surfaces",
+      "animation_type": "light",
+      "intensity": "subtle",
+      "loop": "seamless",
+      "priority": 3
+    },
+    {
+      "id": "right_bush_wind",
+      "element": "Dense bush on the right side of the archway",
+      "location": "Right foreground near archway column",
+      "animation_type": "wind",
+      "intensity": "subtle",
+      "loop": "ping-pong",
+      "priority": 3
+    }
+  ]
+}
