@@ -1,0 +1,23 @@
+flowchart TD
+    IG["image_generate\n(prompt)\n→ panorama.jpg"]
+    DA["detect_animatables\n(prompt)\n→ detect_animatables.json"]
+    MG["music_generate\n(prompt)\n→ music.mp3"]
+    VG["video_generate\n(prompt)\n→ video.mp4"]
+    EF["extract_first_frame\n(action / ffmpeg)\n→ first_frame.jpg"]
+    HG["hotspot_grounding\n(prompt)\n→ roomId.json"]
+    HC["hotspot_content\n(prompt)\n→ hotspot_content_raw.txt"]
+    WJ["write_hotspot_json\n(action)\n→ hotspots/*/hotspot.json"]
+    WI["write_hotspot_interfaces\n(action)\n→ hotspots/*/interface.js"]
+    DR["deploy_room\n(action --deploy only)\n→ content/rooms/roomId/"]
+
+    IG --> DA
+    IG --> MG
+    DA --> VG
+    VG --> EF
+    EF --> HG
+    IG --> HG
+    HG --> HC
+    HC --> WJ
+    WJ --> WI
+    WI --> DR
+    HG --> DR
