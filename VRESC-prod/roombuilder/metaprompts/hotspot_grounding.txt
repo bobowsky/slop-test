@@ -1,0 +1,25 @@
+Analyse the provided 360-degree equirectangular image. Identify all distinct objects and areas suitable for interactive hotspots in a VR exploration scene. For each, output a bounding polygon in normalised equirectangular coordinates.
+
+Scene context provided by the author:
+{scene_description}
+
+COORDINATE SYSTEM:
+- nx in [0.0, 1.0]: horizontal, left to right (0.0 = left edge = yaw -180 deg, 1.0 = right edge = yaw +180 deg)
+- ny in [0.0, 1.0]: vertical, top to bottom (0.0 = top = pitch +90 deg, 1.0 = bottom = pitch -90 deg)
+- Standard rectangle: [[x0,y0],[x1,y0],[x1,y1],[x0,y1]]
+- Minimum 3 vertices per polygon
+
+SELECTION RULES:
+- Include: furniture, fixtures, wall items, floor coverings, ceiling elements, windows, doors, lamps, plants, art, appliances, books, cabinets, rugs, architectural features
+- Exclude: large uniform surfaces with no detail (bare wall sections over 30% of frame with nothing on them)
+- Polygons must not overlap; if objects overlap give priority to foreground object
+- id format: hs_descriptive_name using specific names (hs_fireplace not hs_object_1)
+- Aim for 12-25 hotspots
+- Sort output left to right by polygon horizontal centre
+
+ROOM SCHEMA:
+{room_schema}
+
+Output valid JSON only, no commentary outside the JSON block.
+The output structure is defined by the room_schema above — derive the required fields and format from it.
+All coordinate values rounded to 2 decimal places.

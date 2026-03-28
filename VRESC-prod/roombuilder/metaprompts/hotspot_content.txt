@@ -1,0 +1,36 @@
+Generate hotspot.json content for each hotspot in the room layout below.
+
+Scene context provided by the author:
+{scene_description}
+
+Room layout (from step 6):
+{room_json}
+
+Gadget schemas defining required fields:
+{gadget_schemas}
+
+GADGET SELECTION:
+- info: purely descriptive objects - furniture, architecture, art, plants, decor. No puzzle.
+- numpad: object contains a countable or readable number - sections, dates, dial digits, years on labels, page numbers.
+- toggle-bank: object has multiple binary states matching a pattern - switches, breakers, valves, buttons, lights in a row.
+When in doubt prefer info. A forced puzzle is worse than no puzzle.
+
+CONTENT RULES:
+- title: specific and evocative, 3-6 words, title case
+- badge: format "Category . Subcategory" e.g. "Furniture . Craft" or "Puzzle . Objects"
+- body (info): 2-4 sentences. What the player sees, its history or significance, one subtle narrative detail. 40-80 words.
+- prompt (numpad/toggle-bank): what the player must observe or deduce, referencing a specific visible detail, ending with a direct question. 30-60 words.
+- answer (numpad): digits only, no spaces, derivable from visual inspection
+- hint: one sentence, direct but not giving the answer
+- on_success: one atmospheric narrative sentence, never use the word "Correct"
+- on_fail: one observational sentence that redirects attention without scolding
+- switches (toggle-bank): short uppercase labels 1-6 characters each
+- initial and target: boolean arrays same length as switches, initial must differ from target
+
+OUTPUT: one JSON block per hotspot, each preceded by a comment line with its file path:
+// content/rooms/{room_id}/hotspots/<id>/hotspot.json
+
+Derive the required fields and allowed values for each gadget directly from the injected gadget_schemas above.
+The "required" array in each schema lists exactly which keys must be present in popup.
+The "const" value on the interaction field tells you which gadget name to use.
+After all hotspots output a summary table with columns: id, gadget, title.
