@@ -250,4 +250,4 @@ Copies the finished staging area into `content/rooms/<room_id>/`:
 - `hotspots/<hs_id>/interface.js` for all hotspots
 - `panorama.jpg`, `video.mp4`, `music.mp3` — only if present with non-zero size
 
-After deploy, update `ROOM_NAME` in `app.py` to `room_id` and restart Flask.
+After deploy, update `ROOM_NAME` in `app.py` to `room_id` and restart Flask. 
